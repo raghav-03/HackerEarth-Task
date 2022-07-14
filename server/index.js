@@ -1,5 +1,6 @@
 const Express=require("express");
 const app=Express();
+var cors = require('cors')
 const dotenv=require('dotenv')
 const cloudinary=require('cloudinary');
 const bodyparser=require('body-parser');
@@ -11,7 +12,7 @@ dotenv.config({path:"config/config.env"})
 app.use(Express.json());
 app.use(bodyparser.urlencoded({extended:true}))
 // app.use(fileupload());
-
+app.use(cors())
 app.use(require('./router/index.js'));
 require('./db/config')
 cloudinary.config({
