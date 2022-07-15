@@ -15,13 +15,14 @@ body {
     font:16px/1.2 'Poppins', sans-serif;
     background: 
     linear-gradient(45deg, hsl(236, 100%, 80%,.4), rgba(205,155,225,.3));
+
 }
 
 .gallery {
     --anim-time--hi: 266ms;
     --anim-time--med: 400ms;
     --anim-time--lo: 600ms;
-
+    margin-top: 50px;
     display: flex;
     place-content: center;
     max-width: clamp(30rem, 95%, 50rem);
@@ -160,6 +161,7 @@ img {
     text-decoration: none;
     font: 300 0.7vmax "Roboto";
     color: rgb(80, 80, 80);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     transition: all 0.3s;
   }
   

@@ -1,7 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+ @import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
 
-.card-form {
-  display: inline-block;
+.card-form-edit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   margin-bottom: 30px;
   width: 500px;
   border-radius: 10px;
@@ -9,7 +12,7 @@
   box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3),
     0 17px 17px 0 rgba(0, 0, 0, 0.15);
 }
-.card-form .form-title {
+.card-form-edit .form-title {
   width: 100%;
   display: flex;
   align-items: center;
@@ -21,15 +24,15 @@
   background: #7D9D9C;
   border-radius: 10px 10px 0 0;
 }
-.card-form .form-body {
+.card-form-edit .form-body {
   padding: 10px;
 }
-.card-form .form-body .row {
+.card-form-edit .form-body .row {
   display: flex;
   justify-content: space-around;
   padding: 10px;
 }
-.card-form .form-body .row input[type="text"] {
+.card-form-edit .form-body .row input[type="text"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -44,16 +47,17 @@
   color: #576366;
   font-size: 14px;
 }
-.card-form .rule {
+.card-form-edit .rule {
   height: 2px;
   background: #e8ebed;
   margin: 0px 35px;
 }
-.card-form .form-footer {
+.card-form-edit .form-footer {
+  text-align: center;
   margin: 0 25px 15px 25px;
   padding: 15px 10px;
 }
-.card-form .form-footer button {
+.card-form-edit .form-footer button {
   display: inline-block;
   height: 40px;
   width: 30%;
@@ -67,7 +71,7 @@
   transition: 0.5s ease;
 }
 
-.card-form .form-footer button:hover {
-    height: 50px;
-    width: 32%;
+.card-form-edit .form-footer button:hover {
+  height: 50px;
+  width: 32%;
 }

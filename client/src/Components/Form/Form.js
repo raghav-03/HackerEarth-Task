@@ -34,33 +34,43 @@ const dispatch = useDispatch();
     });
   };
   return (
-    <div>
-      <form onSubmit={adddata}>
-        <input
-          className="adddata"
-          type="text"
-          name="imgName"
-          value={formdata.imgName}
-          placeholder="Enter Image Name "
-          onChange={changedata}
-        ></input>
-        <input
-          className="adddata"
-          type="text"
-          name="Imgdetails"
-          value={formdata.Imgdetails}
-          placeholder="Enter Image Details "
-          onChange={changedata}
-        ></input>
-        <input
-          className="adddata"
-          type="text"
-          name="img_url"
-          value={formdata.img_url}
-          placeholder="Enter Image URL "
-          onChange={changedata}
-        ></input>
-        <button type="submit">Add Data</button>
+    <div className="card-form">
+      <form className="signup" onSubmit={adddata}>
+        <div className="form-title">Add a new Image</div>
+        <div className="form-body">
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Image Name*"
+              name="imgName"
+              value={formdata.imgName}
+              onChange={changedata}
+              autoComplete="off"
+            />
+            <input
+              type="text"
+              placeholder="Image URL*"
+              name="img_url"
+              value={formdata.img_url}
+              onChange={changedata}
+              autoComplete="off"
+            />
+          </div>
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Image Details*"
+              name="Imgdetails"
+              value={formdata.Imgdetails}
+              onChange={changedata}
+              autoComplete="off"
+            />
+          </div>
+        </div>
+        <div className="rule"></div>
+        <div className="form-footer">
+          <button type="submit"><span style={{color: "white"}}>Add Data</span></button>
+        </div>
       </form>
     </div>
   );

@@ -3,9 +3,12 @@ import Home from "./Home";
 import Image from "./Components/Image/Image";
 import Edit from "./Components/Edit/Edit";
 import Search from "./Components/Search/Search";
+import './App.css'
+import Navbar from "./Components/Navbar/Navbar";
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:keyword" element={<Home />} />

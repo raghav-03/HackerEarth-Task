@@ -7,7 +7,7 @@ const bodyparser=require('body-parser');
 const mongoose = require('mongoose');
 
 // const fileupload=require('express-fileupload')
-
+const path=require('path');
 dotenv.config({path:"config/config.env"})
 app.use(Express.json());
 app.use(bodyparser.urlencoded({extended:true}))
@@ -15,11 +15,10 @@ app.use(bodyparser.urlencoded({extended:true}))
 app.use(cors())
 app.use(require('./router/index.js'));
 require('./db/config')
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+// app.use(Express.static(path.join(__dirname,"../client/build")))
+// app.get("*",(req,res)=>{
+//     res.sendFile(path.resolve(__dirname,"../client/build/index.html"))
+// })
 app.listen(process.env.Port,(e)=>{
     if(e){
         console.log("Error");
