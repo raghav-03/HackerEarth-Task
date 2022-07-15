@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(231, 231, 231);
+  background-color: #F9F7F7;
   position: fixed;
   top: 0%;
   left: 0;
@@ -28,7 +28,7 @@
 .searchBox > input[type="submit"] {
   height: 8%;
   border-radius: 0%;
-  background-color: tomato;
+  background-color: #3F72AF;
   border: none;
   padding: 1vmax;
   width: 10%;

@@ -94,38 +94,11 @@ const Edit = () => {
             <div className="rule"></div>
             <div className="form-footer">
               <button type="submit">
-                <span style={{ color: "white" }}>Add Data</span>
+                <span style={{ color: "white" }}>Edit Data</span>
               </button>
             </div>
           </form>
         </div>
-        // <form onSubmit={editdata}>
-        //   <input
-        //     className="adddata"
-        //     type="text"
-        //     name="imgName"
-        //     value={formdata.imgName}
-        //     placeholder="Enter Image Name "
-        //     readOnly={true}
-        //   ></input>
-        //   <input
-        //     className="adddata"
-        //     type="text"
-        //     name="Imgdetails"
-        //     value={formdata.Imgdetails}
-        //     placeholder="Enter Image Details "
-        //     onChange={changedata}
-        //   ></input>
-        //   <input
-        //     className="adddata"
-        //     type="text"
-        //     name="img_url"
-        //     value={formdata.img_url}
-        //     placeholder="Enter Image URL "
-        //     onChange={changedata}
-        //   ></input>
-        //   <button type="submit">Edit Data</button>
-        // </form>
       )}
     </Fragment>
   );
