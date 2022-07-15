@@ -23,6 +23,7 @@ body {
     --anim-time--med: 400ms;
     --anim-time--lo: 600ms;
     margin-top: 50px;
+    margin-bottom: 50px;
     display: flex;
     place-content: center;
     max-width: clamp(30rem, 95%, 50rem);
