@@ -1,33 +1,39 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect,useState } from "react";
 import "./Images.css";
 import { imageaction, clearerr } from "../../Redux/actions/imageAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../Loader/Loader";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
+import Pagination from "react-js-pagination";
 
 const Images = () => {
   const dispatch = useDispatch();
-  const { error, loading, allimages } = useSelector((state) => state.Image);
+  const params = useParams();
+  const { error, loading, allimages ,perpageitem,filteredimagecount} = useSelector((state) => state.Image);
   const { success } = useSelector((state) => state.newImage);
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const setCurrentPageNo = (e) => {
+    setCurrentPage(e);
+  };
   useEffect(() => {
     if (error) {
       alert(error);
       dispatch(clearerr());
     }
-    dispatch(imageaction());
-  }, [dispatch, error, success]);
+    dispatch(imageaction(params.keyword,currentPage));
+  }, [dispatch, error, success,params.keyword,currentPage]);
   return (
     <Fragment>
       {loading ? (
         <Loader />
       ) : (
         <div className="gallery gallery__content--flow">
+          
           {allimages &&
             allimages.map((image) => {
               return (
-                <Link to={`show/${image._id}`}>
-                  <figure key={image._id}>
+                <Link to={`/show/${image._id}`} key={image._id}>
+                  <figure>
                     <img src={image.img_url} alt={image.imgName} />
                     <figcaption className="header__caption" role="presentation">
                       <h1 className="title title--primary">{image.imgName}</h1>
@@ -36,6 +42,24 @@ const Images = () => {
                 </Link>
               );
             })}
+            {perpageitem < filteredimagecount && (
+            <div className="paginationBox">
+              <Pagination
+                activePage={currentPage}
+                itemsCountPerPage={perpageitem}
+                totalItemsCount={filteredimagecount}
+                onChange={setCurrentPageNo}
+                nextPageText="Next"
+                prevPageText="Prev"
+                firstPageText="1st"
+                lastPageText="Last"
+                itemClass="page-item"
+                linkClass="page-link"
+                activeClass="pageItemActive"
+                activeLinkClass="pageLinkActive"
+              />
+            </div>
+          )}
         </div>
       )}
     </Fragment>

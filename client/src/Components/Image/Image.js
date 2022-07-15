@@ -1,10 +1,16 @@
-import React, { Fragment, useEffect } from "react";
-import { oneimageaction, clearerr } from "../../Redux/actions/imageAction";
+import React, { Fragment, useEffect  } from "react";
+import { oneimageaction, clearerr ,deleteimageaction} from "../../Redux/actions/imageAction";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
-
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import Stack from "@mui/material/Stack";
+import "./Image.css";
+import { useNavigate } from "react-router-dom";
 const Image = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const { error, loading, image } = useSelector((state) => state.oneImage);
   const params = useParams();
@@ -15,14 +21,41 @@ const Image = () => {
     }
     dispatch(oneimageaction(params.id));
   }, [dispatch, error]);
+  const Editclicked = (e) => {
+    e.preventDefault();
+    navigate(`/${image._id}/edit`);
+  };
+  const Deleteclicked = (e) => {
+    e.preventDefault();
+    dispatch(deleteimageaction(params.id));
+    navigate(`/`);
+  };
+  
   return (
     <Fragment>
       {loading ? (
         <Loader />
       ) : (
-        <div>
-            {image && image.Imgdetails}
+        <div id="container">
+          <div className="product-details">
+            <h1>{image && image.imgName}</h1>
+            <p className="information">{image && image.Imgdetails}</p>
+
+            <Stack direction="row" spacing={2} className="btn-row">
+              <Button onClick={Editclicked} variant="contained" endIcon={<EditIcon />}>
+                Edit
+              </Button>
+              <Button onClick={Deleteclicked} variant="outlined" startIcon={<DeleteIcon />}>
+                Delete
+              </Button>
+            </Stack>
+          </div>
+
+          <div className="product-image">
+            <img src={image && image.img_url} alt={image && image.imgName} />
+          </div>
         </div>
+
       )}
     </Fragment>
   );

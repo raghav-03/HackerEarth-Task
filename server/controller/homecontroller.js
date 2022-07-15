@@ -4,13 +4,17 @@ const Fetures = require("../utlis/features");
 exports.home=async (req,res)=>{
     try{
         const perpageitem=9;
+        const totalimage=await Image.countDocuments();
         const image=new Fetures(Image.find(),req.query).search();
         let images=await image.query;
+        let filteredimagecount=images.length
         image.pagination(perpageitem)
         images=await image.query.clone();
         res.status(200).json({
             success:true,
-            images
+            images,
+            perpageitem,
+            filteredimagecount
         })
     }catch(e){
         res.status(401).json(`Error ${e}`)
@@ -41,14 +45,12 @@ exports.addimg=async (req,res)=>{
 
 exports.editimg=async (req,res)=>{
     try{
-        
-        let image=await Image.findOne({id:req.params.id})
+        let image=await Image.findById(req.params.id)
         image.Imgdetails=req.body.Imgdetails;
         image.img_url=req.body.img_url;
         image.save();
         res.status(200).json({
             success:true,
-            image
         })
     }catch(e){
         res.status(401).json(`Error ${e}`)
