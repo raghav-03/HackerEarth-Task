@@ -13,6 +13,8 @@ const Image = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const { error, loading, image } = useSelector((state) => state.oneImage);
+  const { success } = useSelector((state) => state.editimage);
+
   const params = useParams();
   useEffect(() => {
     if (error) {
@@ -20,7 +22,7 @@ const Image = () => {
       dispatch(clearerr());
     }
     dispatch(oneimageaction(params.id));
-  }, [dispatch, error]);
+  }, [dispatch, error,success]);
   const Editclicked = (e) => {
     e.preventDefault();
     navigate(`/${image._id}/edit`);
