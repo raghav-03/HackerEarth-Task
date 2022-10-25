@@ -1,4 +1,4 @@
-# HackerEarth-assignment
+# Online Image Gallery
 
 ## Demo-Link
 The project is hosted live on: https://imagegallery-online.herokuapp.com/
