@@ -29,6 +29,7 @@ const Image = () => {
   };
   const Deleteclicked = (e) => {
     e.preventDefault();
+    console.log(params.id);
     dispatch(deleteimageaction(params.id));
     navigate(`/`);
   };

@@ -25,6 +25,7 @@ export const imageaction = (keyword="",currentPage=1) => async (dispatch) => {
       type: SHOW_ALL_IMAGE_REQUEST,
     });
     let link = `http://localhost:3601/?keyword=${keyword}&page=${currentPage}`;
+    console.log(link);
     const { data } = await axios.get(link);
     dispatch({
       type: SHOW_ALL_IMAGE_SUCCESS,
@@ -110,7 +111,7 @@ export const deleteimageaction = (id) => async (dispatch) => {
     dispatch({
       type: DELETE_IMAGE_REQUEST,
     });
-    let link = `http://localhost:3601/${id}`;
+    let link = `http://localhost:3601/delete/${id}`;
     const { data } = await axios.delete(link);
     dispatch({
       type: DELETE_IMAGE_SUCCESS,

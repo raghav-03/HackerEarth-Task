@@ -20,6 +20,7 @@ const Images = () => {
       alert(error);
       dispatch(clearerr());
     }
+    
     dispatch(imageaction(params.keyword,currentPage));
   }, [dispatch, error, success,params.keyword,currentPage]);
   return (
@@ -28,7 +29,6 @@ const Images = () => {
         <Loader />
       ) : (
         <div className="gallery gallery__content--flow">
-          
           {allimages &&
             allimages.map((image) => {
               return (

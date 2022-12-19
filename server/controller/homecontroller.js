@@ -64,6 +64,9 @@ exports.deleteimg=async (req,res)=>{
             message:"Image Deleted Successfully"
         })
     }catch(e){
-        res.status(401).json(`Error ${e}`)
+        res.status(401).json({
+            success:false,
+            message:e.message
+        })
     }
 }
