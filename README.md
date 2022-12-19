@@ -1,7 +1,7 @@
 # Online Image Gallery
 
 ## Demo-Link
-The project is hosted live on: https://imagegallery-online.herokuapp.com/
+The project is hosted live on: https://online-image-gallery.vercel.app/
 
 ## Table of Contents
 - About the project
